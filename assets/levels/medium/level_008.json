@@ -1,6 +1,6 @@
 {
-  "levelId": "level_012",
-  "difficulty": "hard",
+  "levelId": "level_008",
+  "difficulty": "medium",
   "gridSize": 6,
   "exit": {
     "row": 1,
@@ -66,17 +66,10 @@
     },
     {
       "id": "H",
-      "row": 3,
+      "row": 2,
       "col": 0,
-      "length": 3,
+      "length": 2,
       "orientation": "vertical"
-    },
-    {
-      "id": "I",
-      "row": 3,
-      "col": 3,
-      "length": 3,
-      "orientation": "horizontal"
     }
   ]
 }

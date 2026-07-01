@@ -3,15 +3,18 @@ import 'level_parser.dart';
 import 'storage_service.dart';
 
 /// 内置关卡资源路径列表。
+///
+/// 难度按步数划分：初阶 15~20 / 中阶 21~29 / 高阶 30~44
+/// 所有关卡均为 6×6 网格，出口不在拐角。
 const List<String> kBuiltInLevelAssets = [
   'assets/levels/easy/level_001.json',
   'assets/levels/easy/level_002.json',
   'assets/levels/easy/level_003.json',
-  'assets/levels/medium/level_004.json',
+  'assets/levels/easy/level_004.json',
   'assets/levels/medium/level_005.json',
   'assets/levels/medium/level_006.json',
   'assets/levels/medium/level_007.json',
-  'assets/levels/hard/level_008.json',
+  'assets/levels/medium/level_008.json',
   'assets/levels/hard/level_009.json',
   'assets/levels/hard/level_010.json',
   'assets/levels/hard/level_011.json',
@@ -80,7 +83,6 @@ class LevelManager {
         final level = await _parser.parseFromAsset(assetPath);
         _loadedLevels.add(level);
       } catch (e) {
-        // 记录日志并跳过失败关卡
         // ignore: avoid_print
         print('加载关卡失败: $assetPath — $e');
       }
@@ -96,7 +98,6 @@ class LevelManager {
       final index = entry.key;
       final progress = allProgress[level.levelId];
 
-      // 第一关默认解锁，后续关卡需前一关通关
       final isLocked = index > 0 &&
           (highest == null ||
               _loadedLevels.indexWhere(
@@ -149,14 +150,12 @@ class LevelManager {
 
     await _storage.saveLevelProgress(levelId, progress);
 
-    // 解锁下一关
     final index = _levelInfos.indexWhere((l) => l.levelId == levelId);
     if (index >= 0 && index + 1 < _levelInfos.length) {
       final nextLevelId = _levelInfos[index + 1].levelId;
       await _storage.setHighestUnlocked(nextLevelId);
     }
 
-    // 刷新关卡列表
     _restoreProgress();
   }
 
