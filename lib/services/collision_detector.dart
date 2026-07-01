@@ -1,5 +1,6 @@
 import '../models/car.dart';
 import '../models/game_state.dart';
+import '../config/constants.dart';
 
 /// 碰撞检测器。
 class CollisionDetector {
@@ -47,19 +48,21 @@ class CollisionDetector {
   }
 
   /// 获取车辆在合法移动范围内的最大步数。
+  ///
+  /// [maxSteps] 不会超过 [appMaxGridSize]，防止目标车到达出口后无限循环。
   static (int minSteps, int maxSteps) getValidMoveRange(
       GameState state, Car car) {
     int min = 0;
-    int max = 0;
 
-    // 向后移动
-    for (int steps = -1;; steps--) {
+    // 向后移动，最多搜索 gridSize 步
+    for (int steps = -1; steps >= -state.gridSize; steps--) {
       if (wouldCollide(state, car, steps)) break;
       min = steps;
     }
 
-    // 向前移动
-    for (int steps = 1;; steps++) {
+    // 向前移动，最多搜索 gridSize 步
+    int max = 0;
+    for (int steps = 1; steps <= state.gridSize; steps++) {
       if (wouldCollide(state, car, steps)) break;
       max = steps;
     }
