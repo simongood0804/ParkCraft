@@ -75,7 +75,12 @@ class LevelManager {
   Future<void> initialize() async {
     _loadedLevels.clear();
     await _loadBuiltInLevels();
+    // 去重：防止任何可能的重复
+    final seen = <String>{};
+    _loadedLevels.retainWhere((l) => seen.add(l.levelId));
     _restoreProgress();
+    // ignore: avoid_print
+    print('[LevelManager] 加载完成: ${_levelInfos.length} 个关卡');
   }
 
   Future<void> _loadBuiltInLevels() async {
