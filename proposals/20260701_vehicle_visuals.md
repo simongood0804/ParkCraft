@@ -1,87 +1,58 @@
-# 车辆视觉优化 —— SVG 矢量车型
+# 车辆视觉优化 —— SVG 俯视车型
 
-> **状态**：`已通过`
+> **状态**：`已实现`
 >
-> **提案人**：项目团队
-> **创建日期**：2026-07-01
-> **最后更新**：2026-07-01
+> **实现时间**：2026-07-01
+> **实现版本**：`e72ff46`
 
 ---
 
-## 1. 背景与动机
+## 1. 方案
 
-当前游戏中所有车辆均以纯色圆角矩形色块表示，缺乏车型辨识度和视觉趣味性。
+### 技术选型
+- 每个车型一个独立 `.svg` 文件（约 1~1.5KB）
+- 俯视角度（从正上方看车辆轮廓）
+- Flutter 通过 `flutter_svg` + `SvgPicture.asset` 渲染
+- 使用 `Stack(CustomPaint + Positioned(SvgPicture))` 叠加，车辆在上层
 
-## 2. 目标
+### 车型清单
 
-- 矩形色块 → 独立 SVG 车型矢量图
-- 长度 2 与长度 3 使用不同车型
-- 目标车为黑白警车
-- 所有车型画风一致
+| 长度 | 车型 | 文件 | 俯视特征 |
+|------|------|------|----------|
+| 3 | 公交车 | `bus.svg` | 长方形车身 + 前挡风 + 4 侧窗 + 后窗 |
+| 3 | 半挂卡车 | `semi_truck.svg` | 独立车头 + 货柜 + 货柜门线 |
+| 3 | 水泥搅拌车 | `cement_truck.svg` | 车头 + 椭圆形搅拌罐 + 罐体横纹 |
+| 3 | 危险品运输车 | `hazmat_truck.svg` | 红色车头 + 黄色货柜 + 危险菱形 ⚠ |
+| 2 | 跑车 | `sports_car.svg` | 流线型轮廓 + 前唇 + 尾翼 + 大面积车窗 |
+| 2 | 出租车 | `taxi.svg` | 黄色 + 棋盘格条纹 + TAXI 顶灯 + 挡风玻璃 |
+| 2 | 救护车 | `ambulance.svg` | 白色 + 红蓝条纹 + 红色十字 + 警灯条 |
+| 2 | 小轿车 | `sedan.svg` | 标准轿车 + 前后风挡 + 侧窗 |
+| 2 | 警车 | `police.svg` | 黑白分段 + 红蓝条纹 + POLICE 文字 + 警灯条 |
 
-## 3. 方案设计
+### 渲染方式
 
-### 3.1 技术选型
+```
+Stack:
+  ├── CustomPaint (网格线 + 出口箭头 + 选中高亮)
+  └── Positioned × N (每辆车)
+        ├── SvgPicture.asset(svgAsset, fit: BoxFit.contain)
+        └── RotatedBox (quarterTurns:1) ← 垂直车旋转90°
+```
 
-**SVG + `flutter_svg` 包**
-- 每个车型一个独立 `.svg` 文件（1~3KB）
-- 矢量无限缩放，任意分辨率清晰
-- 可单独编辑替换，方便后续迭代
-- 水平/垂直翻转只需一个矩阵变换
+## 2. 实现文件
 
-### 3.2 车型清单
+| 文件 | 说明 |
+|------|------|
+| `lib/models/car.dart` | 新增 `VehicleType` 枚举、`svgAsset` getter |
+| `lib/services/level_parser.dart` | 解析时根据 length 自动分配车型 |
+| `lib/widgets/game_grid.dart` | `GridPainter` 仅画网格/出口/选中；`CarSvgWidget` 渲染车型 |
+| `lib/widgets/game_grid_widget.dart` | `Stack` 叠加层 |
+| `pubspec.yaml` | 添加 `flutter_svg` 依赖、`assets/vehicles/` 目录 |
+| `assets/vehicles/*.svg` | 9 个俯视车型 SVG 文件 |
+| `gen_levels.py` | 关卡生成器（保留） |
 
-| 长度 | 车型 | 文件名 | 说明 |
-|------|------|--------|------|
-| 3 | 公交车 | `bus.svg` | 长矩形 + 车窗 |
-| 3 | 半挂卡车 | `semi_truck.svg` | 车头 + 货柜 |
-| 3 | 水泥搅拌车 | `cement_truck.svg` | 车头 + 圆形搅拌罐 |
-| 3 | 危险品运输车 | `hazmat_truck.svg` | 车头 + 危险标志 |
-| 2 | 跑车 | `sports_car.svg` | 流线型车身 |
-| 2 | 出租车 | `taxi.svg` | 车顶灯箱 + 棋盘格 |
-| 2 | 救护车 | `ambulance.svg` | 十字标志 + 警灯 |
-| 2 | 小轿车 | `sedan.svg` | 标准轿车 |
-| 2 | 警车（目标） | `police.svg` | 黑白 + POLICE + 警灯 |
+## 3. 后续可改进
 
-### 3.3 实现方式
-
-1. SVG 资源放在 `assets/vehicles/` 目录
-2. `Car` 模型新增 `vehicleType` 字段 + 文件名映射
-3. `LevelParser` 解析时根据 `length` 自动分配车型
-4. `GridPainter` 使用 `SvgPicture.string()` 或 `SvgPicture.asset()` 绘制
-5. 通过 `Transform` 旋转适配水平/垂直方向
-
-### 3.4 影响范围
-
-- [x] 数据模型（`lib/models/car.dart`）
-- [x] 业务逻辑（`lib/services/level_parser.dart`）
-- [x] UI 组件（`lib/widgets/game_grid.dart`）
-- [x] 包依赖（`flutter_svg`）
-- [ ] 关卡配置（无需改动）
-
-### 3.5 兼容性
-
-- JSON 配置无需修改
-- 原有的颜色方案保留为车辆涂装底色
-
-## 4. 验收标准
-
-- [ ] 9 种车型在网格中清晰可辨
-- [ ] 警车黑白配色独一目了然
-- [ ] 水平/垂直方向绘制正确
-- [ ] 拖拽/选中/高亮效果正常
-- [ ] 无性能下降
-
-## 5. 工作量估算
-
-| 类别 | 文件数 | 预估工时 |
-|------|--------|----------|
-| SVG 资源 | 9 | 2h |
-| 模型/解析器 | 2 | 0.5h |
-| 绘制集成 | 1 | 1h |
-| 测试 | 1 | 0.5h |
-| **合计** | **13** | **4h** |
-
-## 6. 备注
-
-所有 SVG 代码生成，确保画风统一。
+- 添加车灯、保险杠等细节提升真实感
+- 不同车型使用不同的颜色方案（目前保留原有颜色逻辑）
+- 支持自定义涂装
