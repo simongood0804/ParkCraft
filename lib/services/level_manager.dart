@@ -10,6 +10,12 @@ const List<String> kBuiltInLevelAssets = [
   'assets/levels/medium/level_004.json',
   'assets/levels/medium/level_005.json',
   'assets/levels/hard/level_006.json',
+  'assets/levels/medium/level_007.json',
+  'assets/levels/medium/level_008.json',
+  'assets/levels/medium/level_009.json',
+  'assets/levels/hard/level_010.json',
+  'assets/levels/hard/level_011.json',
+  'assets/levels/hard/level_012.json',
 ];
 
 /// 关卡元数据（用于 UI 展示）。
