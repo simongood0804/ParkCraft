@@ -26,17 +26,48 @@ class LevelSelectPage extends StatelessWidget {
         ),
         body: Consumer<LevelProvider>(
           builder: (context, provider, _) {
-            if (provider.levels.isEmpty) {
-              return const Center(child: CircularProgressIndicator());
+            switch (provider.state) {
+              case LevelLoadState.loading:
+                return const Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircularProgressIndicator(),
+                      SizedBox(height: 16),
+                      Text('正在加载关卡...'),
+                    ],
+                  ),
+                );
+              case LevelLoadState.error:
+                return Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.error_outline,
+                          size: 48, color: Colors.red),
+                      const SizedBox(height: 16),
+                      Text(
+                        provider.errorMessage,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(color: Colors.red),
+                      ),
+                      const SizedBox(height: 16),
+                      ElevatedButton(
+                        onPressed: () => provider.loadLevels(),
+                        child: const Text('重试'),
+                      ),
+                    ],
+                  ),
+                );
+              case LevelLoadState.loaded:
+                return TabBarView(
+                  children: [
+                    _buildLevelGrid(context, provider, 'easy'),
+                    _buildLevelGrid(context, provider, 'medium'),
+                    _buildLevelGrid(context, provider, 'hard'),
+                  ],
+                );
             }
-
-            return TabBarView(
-              children: [
-                _buildLevelGrid(context, provider, 'easy'),
-                _buildLevelGrid(context, provider, 'medium'),
-                _buildLevelGrid(context, provider, 'hard'),
-              ],
-            );
           },
         ),
         floatingActionButton: FloatingActionButton(

@@ -11,13 +11,21 @@ class ImportResult {
   ImportResult({required this.success, this.levelId, this.errorMessage});
 }
 
+/// 关卡加载状态。
+enum LevelLoadState { loading, loaded, error }
+
 /// 关卡列表状态管理。
 class LevelProvider extends ChangeNotifier {
   final LevelManager _manager;
 
+  LevelLoadState _state = LevelLoadState.loading;
+  String _errorMessage = '';
+
   LevelProvider(this._manager);
 
   List<LevelInfo> get levels => _manager.levelInfos;
+  LevelLoadState get state => _state;
+  String get errorMessage => _errorMessage;
 
   bool isLevelUnlocked(String levelId) {
     final info = _findLevelInfo(levelId);
@@ -38,7 +46,19 @@ class LevelProvider extends ChangeNotifier {
   }
 
   Future<void> loadLevels() async {
-    await _manager.initialize();
+    _state = LevelLoadState.loading;
+    try {
+      await _manager.initialize();
+      if (_manager.levelInfos.isEmpty) {
+        _state = LevelLoadState.error;
+        _errorMessage = '关卡加载失败：所有关卡配置均解析错误';
+      } else {
+        _state = LevelLoadState.loaded;
+      }
+    } catch (e) {
+      _state = LevelLoadState.error;
+      _errorMessage = '关卡加载异常：$e';
+    }
     notifyListeners();
   }
 

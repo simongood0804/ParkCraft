@@ -79,7 +79,7 @@ class LevelManager {
       try {
         final level = await _parser.parseFromAsset(assetPath);
         _loadedLevels.add(level);
-      } on ParserException catch (e) {
+      } catch (e) {
         // 记录日志并跳过失败关卡
         // ignore: avoid_print
         print('加载关卡失败: $assetPath — $e');
