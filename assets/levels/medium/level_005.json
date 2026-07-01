@@ -1,0 +1,26 @@
+{
+  "levelId": "level_005",
+  "difficulty": "medium",
+  "gridSize": 7,
+  "exit": {
+    "row": 1,
+    "col": 6,
+    "orientation": "horizontal"
+  },
+  "targetCar": {
+    "id": "T",
+    "row": 1,
+    "col": 0,
+    "length": 2,
+    "orientation": "horizontal"
+  },
+  "blockingCars": [
+    { "id": "A", "row": 0, "col": 0, "length": 2, "orientation": "vertical" },
+    { "id": "B", "row": 0, "col": 2, "length": 2, "orientation": "vertical" },
+    { "id": "C", "row": 1, "col": 2, "length": 3, "orientation": "horizontal" },
+    { "id": "D", "row": 2, "col": 1, "length": 2, "orientation": "vertical" },
+    { "id": "E", "row": 3, "col": 0, "length": 3, "orientation": "horizontal" },
+    { "id": "F", "row": 4, "col": 0, "length": 2, "orientation": "vertical" },
+    { "id": "G", "row": 4, "col": 2, "length": 2, "orientation": "horizontal" }
+  ]
+}
