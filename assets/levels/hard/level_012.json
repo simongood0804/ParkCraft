@@ -17,70 +17,42 @@
   "blockingCars": [
     {
       "id": "A",
-      "row": 0,
-      "col": 0,
-      "length": 3,
+      "row": 5,
+      "col": 2,
+      "length": 2,
       "orientation": "horizontal"
     },
     {
       "id": "B",
-      "row": 0,
-      "col": 3,
+      "row": 6,
+      "col": 0,
       "length": 2,
-      "orientation": "vertical"
+      "orientation": "horizontal"
     },
     {
       "id": "C",
-      "row": 1,
-      "col": 4,
-      "length": 2,
+      "row": 4,
+      "col": 3,
+      "length": 3,
       "orientation": "horizontal"
     },
     {
       "id": "D",
-      "row": 2,
-      "col": 0,
-      "length": 3,
-      "orientation": "horizontal"
-    },
-    {
-      "id": "E",
-      "row": 2,
-      "col": 4,
-      "length": 2,
-      "orientation": "horizontal"
-    },
-    {
-      "id": "F",
-      "row": 3,
-      "col": 2,
-      "length": 3,
-      "orientation": "horizontal"
-    },
-    {
-      "id": "G",
-      "row": 3,
-      "col": 6,
-      "length": 2,
-      "orientation": "vertical"
-    },
-    {
-      "id": "H",
       "row": 4,
       "col": 1,
       "length": 2,
       "orientation": "horizontal"
     },
     {
-      "id": "I",
-      "row": 5,
-      "col": 3,
+      "id": "E",
+      "row": 2,
+      "col": 5,
       "length": 2,
-      "orientation": "vertical"
+      "orientation": "horizontal"
     },
     {
-      "id": "J",
-      "row": 6,
+      "id": "F",
+      "row": 1,
       "col": 0,
       "length": 3,
       "orientation": "horizontal"

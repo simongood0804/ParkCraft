@@ -18,6 +18,7 @@ class GameProvider extends ChangeNotifier {
   final void Function(String levelId, int moves, int timeSeconds) _onWin;
 
   GameState? _state;
+  Level? _currentLevel; // 保存原始关卡用于重置
   bool _isPaused = false;
   bool _isCompleted = false;
   Move? _currentHint;
@@ -37,6 +38,7 @@ class GameProvider extends ChangeNotifier {
   Move? get currentHint => _currentHint;
 
   void loadLevel(Level level) {
+    _currentLevel = level;
     _state = _engine.loadLevel(level);
     _undoManager.clear();
     _stats.reset();
@@ -54,16 +56,13 @@ class GameProvider extends ChangeNotifier {
       return false;
     }
 
-    // 记录撤销快照
     _undoManager.recordBeforeMove(_state!, carId);
 
-    // 执行移动
     _engine.tryMove(_state!, carId, steps);
     _stats.recordMove();
     _currentHint = null;
     _audio.playMoveSound();
 
-    // 检查胜利
     if (_engine.checkWin(_state!)) {
       _isCompleted = true;
       _stats.stop();
@@ -89,7 +88,11 @@ class GameProvider extends ChangeNotifier {
     }
   }
 
+  /// 重置关卡：从保存的原始 Level 重新加载。
   void reset() {
+    if (_currentLevel == null) return;
+    loadLevel(_currentLevel!);
+    _stats.start();
     notifyListeners();
   }
 
@@ -97,10 +100,6 @@ class GameProvider extends ChangeNotifier {
     if (_state == null) return;
     final hint = _hintSolver.getNextHint(_state!);
     _currentHint = hint;
-
-    if (hint == null) {
-      // 无提示可用，UI 会通过 getter 感知
-    }
     notifyListeners();
   }
 

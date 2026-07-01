@@ -7,6 +7,7 @@ import '../services/localization_service.dart';
 import '../widgets/game_grid_widget.dart';
 import '../widgets/info_bar.dart';
 import '../widgets/action_buttons.dart';
+import '../config/routes.dart';
 
 /// 游戏主页面。
 class GamePage extends StatefulWidget {
@@ -19,6 +20,7 @@ class GamePage extends StatefulWidget {
 
 class _GamePageState extends State<GamePage> {
   late GameProvider _gameProvider;
+  bool _winDialogShown = false;
 
   @override
   void initState() {
@@ -47,6 +49,15 @@ class _GamePageState extends State<GamePage> {
       value: _gameProvider,
       child: Consumer<GameProvider>(
         builder: (context, provider, _) {
+          // 通关时弹出胜利弹窗
+          if (provider.isCompleted && !_winDialogShown) {
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              if (mounted && provider.isCompleted && !_winDialogShown) {
+                _showWinDialog(context, provider);
+              }
+            });
+          }
+
           return Scaffold(
             appBar: AppBar(
               leading: IconButton(
@@ -66,6 +77,51 @@ class _GamePageState extends State<GamePage> {
             ),
           );
         },
+      ),
+    );
+  }
+
+  void _showWinDialog(BuildContext context, GameProvider provider) {
+    _winDialogShown = true;
+    final levelProvider = context.read<LevelProvider>();
+    final nextLevelId = levelProvider.getNextLevelId(widget.levelId);
+
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (ctx) => AlertDialog(
+        title: Text(AppLocalizations.tr('gameWinTitle')),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text('${AppLocalizations.tr('gameMoves')}: ${provider.moveCount}'),
+            const SizedBox(height: 8),
+            Text('${AppLocalizations.tr('gameTime')}: ${_formatTime(provider.elapsedSeconds)}'),
+            const SizedBox(height: 8),
+            Text(AppLocalizations.tr('gameWinNewRecord'),
+                style: const TextStyle(
+                    fontWeight: FontWeight.bold, color: Colors.amber)),
+          ],
+        ),
+        actions: [
+          if (nextLevelId != null)
+            TextButton(
+              onPressed: () {
+                Navigator.pop(ctx);
+                Navigator.pushReplacementNamed(
+                    context, AppRoutes.game,
+                    arguments: nextLevelId);
+              },
+              child: Text(AppLocalizations.tr('gameNextLevel')),
+            ),
+          TextButton(
+            onPressed: () {
+              Navigator.pop(ctx);
+              Navigator.pop(context);
+            },
+            child: Text(AppLocalizations.tr('gameBackToMenu')),
+          ),
+        ],
       ),
     );
   }
@@ -108,7 +164,7 @@ class _GamePageState extends State<GamePage> {
           TextButton(
             onPressed: () {
               Navigator.pop(ctx);
-              Navigator.pop(context); // 返回关卡选择
+              Navigator.pop(context);
             },
             child: Text(AppLocalizations.tr('gameBackToMenu')),
           ),
