@@ -10,14 +10,38 @@
   "targetCar": {
     "id": "T",
     "row": 3,
-    "col": 1,
+    "col": 0,
     "length": 2,
     "orientation": "horizontal"
   },
   "blockingCars": [
-    { "id": "A", "row": 0, "col": 0, "length": 3, "orientation": "horizontal" },
-    { "id": "B", "row": 1, "col": 3, "length": 2, "orientation": "vertical" },
-    { "id": "C", "row": 3, "col": 3, "length": 2, "orientation": "vertical" },
-    { "id": "D", "row": 4, "col": 1, "length": 3, "orientation": "horizontal" }
+    {
+      "id": "A",
+      "row": 0,
+      "col": 0,
+      "length": 3,
+      "orientation": "horizontal"
+    },
+    {
+      "id": "B",
+      "row": 0,
+      "col": 3,
+      "length": 2,
+      "orientation": "vertical"
+    },
+    {
+      "id": "C",
+      "row": 4,
+      "col": 0,
+      "length": 3,
+      "orientation": "horizontal"
+    },
+    {
+      "id": "D",
+      "row": 2,
+      "col": 2,
+      "length": 2,
+      "orientation": "horizontal"
+    }
   ]
 }

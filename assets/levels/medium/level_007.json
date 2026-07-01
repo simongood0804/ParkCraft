@@ -3,24 +3,59 @@
   "difficulty": "medium",
   "gridSize": 7,
   "exit": {
-    "row": 1,
+    "row": 4,
     "col": 6,
     "orientation": "horizontal"
   },
   "targetCar": {
     "id": "T",
-    "row": 1,
+    "row": 4,
     "col": 0,
     "length": 2,
     "orientation": "horizontal"
   },
   "blockingCars": [
-    { "id": "A", "row": 0, "col": 0, "length": 3, "orientation": "horizontal" },
-    { "id": "B", "row": 1, "col": 2, "length": 3, "orientation": "horizontal" },
-    { "id": "C", "row": 1, "col": 5, "length": 2, "orientation": "vertical" },
-    { "id": "D", "row": 2, "col": 2, "length": 2, "orientation": "vertical" },
-    { "id": "E", "row": 3, "col": 1, "length": 2, "orientation": "horizontal" },
-    { "id": "F", "row": 3, "col": 3, "length": 3, "orientation": "horizontal" },
-    { "id": "G", "row": 4, "col": 5, "length": 2, "orientation": "vertical" }
+    {
+      "id": "A",
+      "row": 0,
+      "col": 0,
+      "length": 3,
+      "orientation": "horizontal"
+    },
+    {
+      "id": "B",
+      "row": 1,
+      "col": 3,
+      "length": 2,
+      "orientation": "vertical"
+    },
+    {
+      "id": "C",
+      "row": 2,
+      "col": 0,
+      "length": 3,
+      "orientation": "horizontal"
+    },
+    {
+      "id": "D",
+      "row": 2,
+      "col": 6,
+      "length": 2,
+      "orientation": "vertical"
+    },
+    {
+      "id": "E",
+      "row": 4,
+      "col": 2,
+      "length": 3,
+      "orientation": "horizontal"
+    },
+    {
+      "id": "F",
+      "row": 5,
+      "col": 2,
+      "length": 2,
+      "orientation": "vertical"
+    }
   ]
 }

@@ -1,15 +1,15 @@
 {
-  "levelId": "level_010",
-  "difficulty": "hard",
-  "gridSize": 8,
+  "levelId": "level_006",
+  "difficulty": "medium",
+  "gridSize": 7,
   "exit": {
-    "row": 5,
-    "col": 7,
+    "row": 3,
+    "col": 6,
     "orientation": "horizontal"
   },
   "targetCar": {
     "id": "T",
-    "row": 5,
+    "row": 3,
     "col": 0,
     "length": 2,
     "orientation": "horizontal"
@@ -31,45 +31,31 @@
     },
     {
       "id": "C",
-      "row": 2,
-      "col": 0,
-      "length": 3,
-      "orientation": "horizontal"
-    },
-    {
-      "id": "D",
-      "row": 2,
-      "col": 3,
-      "length": 2,
-      "orientation": "vertical"
-    },
-    {
-      "id": "E",
-      "row": 3,
+      "row": 1,
       "col": 1,
       "length": 2,
       "orientation": "horizontal"
     },
     {
-      "id": "F",
+      "id": "D",
+      "row": 3,
+      "col": 2,
+      "length": 3,
+      "orientation": "horizontal"
+    },
+    {
+      "id": "E",
       "row": 3,
       "col": 5,
       "length": 2,
       "orientation": "vertical"
     },
     {
-      "id": "G",
+      "id": "F",
       "row": 4,
       "col": 2,
-      "length": 3,
-      "orientation": "horizontal"
-    },
-    {
-      "id": "H",
-      "row": 5,
-      "col": 2,
-      "length": 3,
-      "orientation": "horizontal"
+      "length": 2,
+      "orientation": "vertical"
     }
   ]
 }

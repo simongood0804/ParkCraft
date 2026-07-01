@@ -15,10 +15,40 @@
     "orientation": "horizontal"
   },
   "blockingCars": [
-    { "id": "A", "row": 0, "col": 2, "length": 3, "orientation": "horizontal" },
-    { "id": "B", "row": 1, "col": 0, "length": 2, "orientation": "vertical" },
-    { "id": "C", "row": 3, "col": 2, "length": 2, "orientation": "horizontal" },
-    { "id": "D", "row": 0, "col": 3, "length": 2, "orientation": "vertical" },
-    { "id": "E", "row": 2, "col": 3, "length": 2, "orientation": "vertical" }
+    {
+      "id": "A",
+      "row": 0,
+      "col": 2,
+      "length": 3,
+      "orientation": "horizontal"
+    },
+    {
+      "id": "B",
+      "row": 1,
+      "col": 0,
+      "length": 2,
+      "orientation": "vertical"
+    },
+    {
+      "id": "C",
+      "row": 3,
+      "col": 2,
+      "length": 2,
+      "orientation": "horizontal"
+    },
+    {
+      "id": "D",
+      "row": 2,
+      "col": 4,
+      "length": 2,
+      "orientation": "vertical"
+    },
+    {
+      "id": "E",
+      "row": 4,
+      "col": 3,
+      "length": 2,
+      "orientation": "vertical"
+    }
   ]
 }
