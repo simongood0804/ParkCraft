@@ -6,7 +6,11 @@ import '../providers/game_provider.dart';
 import '../services/collision_detector.dart';
 import 'game_grid.dart';
 
-/// 游戏网格 Widget（含手势交互——车辆跟随手指平滑移动）。
+/// 游戏网格 Widget。
+///
+/// 使用 Stack 叠加：
+///   - 下层：CustomPaint 绘制网格 + 出口 + 选中高亮
+///   - 上层：Positioned CarSvgWidget 绘制每辆车
 class GameGrid extends StatefulWidget {
   const GameGrid({super.key});
 
@@ -18,12 +22,8 @@ class _GameGridState extends State<GameGrid>
     with SingleTickerProviderStateMixin {
   String? _selectedCarId;
   CarOrientation? _dragOrientation;
-
-  // 手指初始绝对位置（当前网格坐标系内）
   Offset? _fingerStartPos;
-  // 车辆在拖拽开始时的网格像素位置
   Offset? _carStartPixelPos;
-  // 当前帧的手指绝对位置
   Offset? _currentFingerPos;
 
   late AnimationController _animController;
@@ -63,15 +63,36 @@ class _GameGridState extends State<GameGrid>
                   _onPanUpdate(details, provider, unitSize),
               onPanEnd: (_) => _onPanEnd(provider),
               onPanCancel: _onPanCancel,
-              child: CustomPaint(
-                size: Size(size, size),
-                painter: GridPainter(
-                  state: state,
-                  exit: state.exit,
-                  unitSize: unitSize,
-                  selectedCarId: _selectedCarId,
-                  hintedCarId: provider.currentHint?.carId,
-                  dragOffset: _buildDragOffset(unitSize, state),
+              child: SizedBox(
+                width: size,
+                height: size,
+                child: Stack(
+                  children: [
+                    // 下层：网格 + 出口 + 选中高亮
+                    CustomPaint(
+                      size: Size(size, size),
+                      painter: GridPainter(
+                        state: state,
+                        exit: state.exit,
+                        unitSize: unitSize,
+                        selectedCarId: _selectedCarId,
+                      ),
+                    ),
+                    // 上层：每辆车
+                    ...state.cars.map((car) {
+                      final isSelected = car.id == _selectedCarId;
+                      final dragOff = isSelected
+                          ? _buildDragOffset(unitSize, state)
+                          : null;
+                      return CarSvgWidget(
+                        key: ValueKey(car.id),
+                        car: car,
+                        unitSize: unitSize,
+                        isHinted: car.id == provider.currentHint?.carId,
+                        dragOffset: dragOff,
+                      );
+                    }),
+                  ],
                 ),
               ),
             );
@@ -81,10 +102,6 @@ class _GameGridState extends State<GameGrid>
     );
   }
 
-  /// 构造车辆视觉偏移量，自动约束到碰撞边界。
-  ///
-  /// 计算逻辑：车辆应出现在手指当前位置的正下方，但不得超过
-  /// 碰撞检测允许的范围（不超出边界、不与其他车重叠）。
   Offset? _buildDragOffset(double unitSize, GameState state) {
     if (_selectedCarId == null ||
         _fingerStartPos == null ||
@@ -99,19 +116,16 @@ class _GameGridState extends State<GameGrid>
     final carPixelX = car.col * unitSize;
     final carPixelY = car.row * unitSize;
 
-    // 手指在车内的初始偏移量（拖拽开始时，手指在车内点击的位置）
     final fingerInCarOffset = Offset(
       _fingerStartPos!.dx - _carStartPixelPos!.dx,
       _fingerStartPos!.dy - _carStartPixelPos!.dy,
     );
 
-    // 车辆应出现的位置 = 手指当前位置 - 手指在车内偏移
-    final targetCarPixelX = _currentFingerPos!.dx - fingerInCarOffset.dx;
-    final targetCarPixelY = _currentFingerPos!.dy - fingerInCarOffset.dy;
+    final targetX = _currentFingerPos!.dx - fingerInCarOffset.dx;
+    final targetY = _currentFingerPos!.dy - fingerInCarOffset.dy;
 
-    // 视觉偏移 = 目标位置 - 车辆当前网格位置
-    double dx = targetCarPixelX - carPixelX;
-    double dy = targetCarPixelY - carPixelY;
+    double dx = targetX - carPixelX;
+    double dy = targetY - carPixelY;
     double rawPixelOffset;
 
     if (car.orientation == CarOrientation.horizontal) {
@@ -120,16 +134,11 @@ class _GameGridState extends State<GameGrid>
       rawPixelOffset = dy;
     }
 
-    // 将像素偏移转为网格步数，并用碰撞检测约束
-    final rawSteps = (rawPixelOffset / unitSize);
-    // 仅在实际显着偏移时才做约束，避免浮点误差导致微抖动
-    if (rawSteps.abs() >= 0.01) {
-      final roundedSteps = rawSteps.round();
+    if (rawPixelOffset.abs() >= 0.01) {
+      final rawSteps = (rawPixelOffset / unitSize).round();
       final (minSteps, maxSteps) =
           CollisionDetector.getValidMoveRange(state, car);
-      final clampedSteps = roundedSteps.clamp(minSteps, maxSteps);
-
-      // 将约束后的步数转回像素
+      final clampedSteps = rawSteps.clamp(minSteps, maxSteps);
       final clampedPixel = clampedSteps * unitSize;
 
       if (car.orientation == CarOrientation.horizontal) {
@@ -138,7 +147,6 @@ class _GameGridState extends State<GameGrid>
       return Offset(0, clampedPixel);
     }
 
-    // 偏移过小，直接返回朝向方向的偏移
     if (car.orientation == CarOrientation.horizontal) {
       return Offset(dx, 0);
     }
@@ -151,7 +159,6 @@ class _GameGridState extends State<GameGrid>
     final row = (details.localPosition.dy / unitSize).floor();
     final state = provider.state;
     if (state == null) return;
-
     final car = state.carAt(row, col);
     setState(() {
       _selectedCarId = car?.id;
@@ -165,21 +172,16 @@ class _GameGridState extends State<GameGrid>
     final row = (details.localPosition.dy / unitSize).floor();
     final state = provider.state;
     if (state == null) return;
-
     final car = state.carAt(row, col);
     if (car == null) return;
 
     _animController.reset();
-
     setState(() {
       _selectedCarId = car.id;
       _dragOrientation = car.orientation;
       _fingerStartPos = details.localPosition;
       _currentFingerPos = details.localPosition;
-      _carStartPixelPos = Offset(
-        car.col * unitSize,
-        car.row * unitSize,
-      );
+      _carStartPixelPos = Offset(car.col * unitSize, car.row * unitSize);
     });
   }
 
@@ -190,7 +192,6 @@ class _GameGridState extends State<GameGrid>
         _dragOrientation == null) {
       return;
     }
-
     final state = provider.state;
     if (state == null) return;
 
@@ -201,10 +202,8 @@ class _GameGridState extends State<GameGrid>
     }
     final car = state.cars[carIdx];
 
-    // 更新当前手指位置（累加增量）
     _currentFingerPos = _currentFingerPos! + details.delta;
 
-    // 计算从拖拽开始到现在的总像素位移（在朝向方向上）
     double totalPixelDelta;
     if (_dragOrientation == CarOrientation.horizontal) {
       totalPixelDelta = _currentFingerPos!.dx - _fingerStartPos!.dx;
@@ -212,7 +211,6 @@ class _GameGridState extends State<GameGrid>
       totalPixelDelta = _currentFingerPos!.dy - _fingerStartPos!.dy;
     }
 
-    // 如果累积像素偏移超过 1 格，尝试提交网格移动
     final steps = (totalPixelDelta / unitSize).round();
     if (steps.abs() >= 1) {
       final (minSteps, maxSteps) =
@@ -222,14 +220,13 @@ class _GameGridState extends State<GameGrid>
       if (clampedSteps != 0) {
         final success = provider.moveCar(_selectedCarId!, clampedSteps);
         if (success) {
-          // 重置起始参考点，使 totalPixelDelta 重新从 0 开始累积
           _fingerStartPos = _currentFingerPos;
-          _carStartPixelPos = Offset(car.col * unitSize, car.row * unitSize);
+          _carStartPixelPos =
+              Offset(car.col * unitSize, car.row * unitSize);
         }
       }
     }
 
-    // 刷新 UI 以更新视觉偏移
     setState(() {});
   }
 

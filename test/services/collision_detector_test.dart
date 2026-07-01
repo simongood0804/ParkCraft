@@ -8,11 +8,11 @@ void main() {
   group('CollisionDetector', () {
     GameState createState() {
       final cars = [
-        Car(id: 'A', row: 0, col: 0, length: 3, orientation: CarOrientation.horizontal),
-        Car(id: 'B', row: 0, col: 3, length: 2, orientation: CarOrientation.vertical),
-        Car(id: 'T', row: 2, col: 0, length: 2, orientation: CarOrientation.horizontal, isTarget: true),
-        Car(id: 'C', row: 2, col: 2, length: 3, orientation: CarOrientation.horizontal),
-        Car(id: 'D', row: 4, col: 0, length: 3, orientation: CarOrientation.horizontal),
+        Car(id: 'A', row: 0, col: 0, length: 3, orientation: CarOrientation.horizontal, vehicleType: VehicleType.bus),
+        Car(id: 'B', row: 0, col: 3, length: 2, orientation: CarOrientation.vertical, vehicleType: VehicleType.sedan),
+        Car(id: 'T', row: 2, col: 0, length: 2, orientation: CarOrientation.horizontal, isTarget: true, vehicleType: VehicleType.policeCar),
+        Car(id: 'C', row: 2, col: 2, length: 3, orientation: CarOrientation.horizontal, vehicleType: VehicleType.bus),
+        Car(id: 'D', row: 4, col: 0, length: 3, orientation: CarOrientation.horizontal, vehicleType: VehicleType.semiTruck),
       ];
       return GameState(
         gridSize: 6,

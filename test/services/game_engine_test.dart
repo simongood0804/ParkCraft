@@ -20,14 +20,14 @@ void main() {
           row: 2,
           col: 0,
           length: 2,
-          orientation: CarOrientation.horizontal,
+          orientation: CarOrientation.horizontal, vehicleType: VehicleType.policeCar,
           isTarget: true,
         ),
         blockingCars: [
-          Car(id: 'A', row: 0, col: 0, length: 3, orientation: CarOrientation.horizontal),
-          Car(id: 'B', row: 0, col: 3, length: 2, orientation: CarOrientation.vertical),
-          Car(id: 'C', row: 2, col: 2, length: 3, orientation: CarOrientation.horizontal),
-          Car(id: 'D', row: 4, col: 0, length: 3, orientation: CarOrientation.horizontal),
+          Car(id: 'A', row: 0, col: 0, length: 3, orientation: CarOrientation.horizontal, vehicleType: VehicleType.bus),
+          Car(id: 'B', row: 0, col: 3, length: 2, orientation: CarOrientation.vertical, vehicleType: VehicleType.sedan),
+          Car(id: 'C', row: 2, col: 2, length: 3, orientation: CarOrientation.horizontal, vehicleType: VehicleType.bus),
+          Car(id: 'D', row: 4, col: 0, length: 3, orientation: CarOrientation.horizontal, vehicleType: VehicleType.bus),
         ],
       );
     });
@@ -107,7 +107,7 @@ void main() {
         exit: Exit(row: 5, col: 2, orientation: CarOrientation.vertical),
         targetCar: Car(
           id: 'T', row: 0, col: 2, length: 2,
-          orientation: CarOrientation.vertical, isTarget: true,
+          orientation: CarOrientation.vertical, isTarget: true, vehicleType: VehicleType.policeCar,
         ),
         blockingCars: [],
       );
@@ -140,10 +140,10 @@ void main() {
         exit: Exit(row: 0, col: 3, orientation: CarOrientation.horizontal),
         targetCar: Car(
           id: 'T', row: 0, col: 0, length: 2,
-          orientation: CarOrientation.horizontal, isTarget: true,
+          orientation: CarOrientation.horizontal, isTarget: true, vehicleType: VehicleType.policeCar,
         ),
         blockingCars: [
-          Car(id: 'A', row: 1, col: 0, length: 2, orientation: CarOrientation.vertical),
+          Car(id: 'A', row: 1, col: 0, length: 2, orientation: CarOrientation.vertical, vehicleType: VehicleType.sedan),
         ],
       );
       final state = engine.loadLevel(simpleLevel);
@@ -176,10 +176,10 @@ void main() {
         exit: Exit(row: 0, col: 4, orientation: CarOrientation.horizontal),
         targetCar: Car(
           id: 'T', row: 0, col: 0, length: 2,
-          orientation: CarOrientation.horizontal, isTarget: true,
+          orientation: CarOrientation.horizontal, isTarget: true, vehicleType: VehicleType.policeCar,
         ),
         blockingCars: [
-          Car(id: 'A', row: 0, col: 2, length: 2, orientation: CarOrientation.horizontal),
+          Car(id: 'A', row: 0, col: 2, length: 2, orientation: CarOrientation.horizontal, vehicleType: VehicleType.sedan),
         ],
       );
       final state = engine.loadLevel(level);

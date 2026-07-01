@@ -158,6 +158,23 @@ class LevelParser {
     }
   }
 
+  // 车型分配池 —— 按长度分组，依次分配确保多样性
+  static const List<VehicleType> _longTypes = [
+    VehicleType.bus,
+    VehicleType.semiTruck,
+    VehicleType.cementTruck,
+    VehicleType.hazmatTruck,
+  ];
+  static const List<VehicleType> _shortTypes = [
+    VehicleType.sportsCar,
+    VehicleType.taxi,
+    VehicleType.ambulance,
+    VehicleType.sedan,
+  ];
+
+  int _longIdx = 0;
+  int _shortIdx = 0;
+
   Car _parseCar(Map<String, dynamic> json,
       {bool isTarget = false, String? levelId}) {
     final id = json['id'] as String;
@@ -166,6 +183,18 @@ class LevelParser {
     final length = json['length'] as int;
     final orientation = _parseOrientation(json['orientation'] as String);
 
+    // 分配车型
+    late VehicleType vt;
+    if (isTarget) {
+      vt = VehicleType.policeCar;
+    } else if (length == 3) {
+      vt = _longTypes[_longIdx % _longTypes.length];
+      _longIdx++;
+    } else {
+      vt = _shortTypes[_shortIdx % _shortTypes.length];
+      _shortIdx++;
+    }
+
     return Car(
       id: id,
       row: row,
@@ -173,6 +202,7 @@ class LevelParser {
       length: length,
       orientation: orientation,
       isTarget: isTarget,
+      vehicleType: vt,
     );
   }
 

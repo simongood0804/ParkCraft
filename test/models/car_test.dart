@@ -10,6 +10,7 @@ void main() {
         col: 3,
         length: 3,
         orientation: CarOrientation.horizontal,
+        vehicleType: VehicleType.bus,
       );
 
       final cells = car.getOccupiedCells();
@@ -27,6 +28,7 @@ void main() {
         col: 0,
         length: 2,
         orientation: CarOrientation.vertical,
+        vehicleType: VehicleType.sedan,
       );
 
       final cells = car.getOccupiedCells();
@@ -44,6 +46,7 @@ void main() {
         length: 2,
         orientation: CarOrientation.horizontal,
         isTarget: true,
+        vehicleType: VehicleType.policeCar,
       );
 
       final copy = car.copyWith(row: 1);
@@ -67,6 +70,7 @@ void main() {
         length: 2,
         orientation: CarOrientation.horizontal,
         isTarget: true,
+        vehicleType: VehicleType.policeCar,
       );
 
       expect(car.isTarget, true);
@@ -79,6 +83,7 @@ void main() {
         col: 0,
         length: 3,
         orientation: CarOrientation.horizontal,
+        vehicleType: VehicleType.bus,
       );
 
       expect(car.isTarget, false);

@@ -21,10 +21,10 @@ void main() {
         exit: Exit(row: 0, col: 3, orientation: CarOrientation.horizontal),
         targetCar: Car(
           id: 'T', row: 0, col: 0, length: 2,
-          orientation: CarOrientation.horizontal, isTarget: true,
+          orientation: CarOrientation.horizontal, isTarget: true, vehicleType: VehicleType.policeCar
         ),
         blockingCars: [
-          Car(id: 'A', row: 2, col: 0, length: 2, orientation: CarOrientation.horizontal),
+          Car(id: 'A', row: 2, col: 0, length: 2, orientation: CarOrientation.horizontal, vehicleType: VehicleType.sedan),
         ],
       );
       final state = GameState.fromLevel(level);
@@ -41,7 +41,7 @@ void main() {
       final state = GameState(
         gridSize: 4,
         cars: [
-          Car(id: 'T', row: 0, col: 3, length: 2, orientation: CarOrientation.horizontal, isTarget: true),
+          Car(id: 'T', row: 0, col: 3, length: 2, orientation: CarOrientation.horizontal, vehicleType: VehicleType.policeCar),
         ],
         exit: Exit(row: 0, col: 3, orientation: CarOrientation.horizontal),
         targetCarId: 'T',
@@ -60,13 +60,13 @@ void main() {
         exit: Exit(row: 2, col: 5, orientation: CarOrientation.horizontal),
         targetCar: Car(
           id: 'T', row: 2, col: 0, length: 2,
-          orientation: CarOrientation.horizontal, isTarget: true,
+          orientation: CarOrientation.horizontal, isTarget: true, vehicleType: VehicleType.policeCar
         ),
         blockingCars: [
-          Car(id: 'A', row: 0, col: 0, length: 3, orientation: CarOrientation.horizontal),
-          Car(id: 'B', row: 0, col: 3, length: 2, orientation: CarOrientation.vertical),
-          Car(id: 'C', row: 2, col: 2, length: 2, orientation: CarOrientation.vertical),
-          Car(id: 'D', row: 4, col: 1, length: 2, orientation: CarOrientation.horizontal),
+          Car(id: 'A', row: 0, col: 0, length: 3, orientation: CarOrientation.horizontal, vehicleType: VehicleType.bus),
+          Car(id: 'B', row: 0, col: 3, length: 2, orientation: CarOrientation.vertical, vehicleType: VehicleType.sedan),
+          Car(id: 'C', row: 2, col: 2, length: 2, orientation: CarOrientation.vertical, vehicleType: VehicleType.sedan),
+          Car(id: 'D', row: 4, col: 1, length: 2, orientation: CarOrientation.horizontal, vehicleType: VehicleType.sedan),
         ],
       );
       final state = GameState.fromLevel(level);
@@ -86,13 +86,13 @@ void main() {
       final trappedState = GameState(
         gridSize: 5,
         cars: [
-          Car(id: 'T', row: 0, col: 0, length: 2, orientation: CarOrientation.horizontal, isTarget: true),
-          Car(id: 'A', row: 0, col: 2, length: 3, orientation: CarOrientation.horizontal),
-          Car(id: 'B', row: 0, col: 3, length: 2, orientation: CarOrientation.vertical),
-          Car(id: 'C', row: 1, col: 2, length: 2, orientation: CarOrientation.vertical),
-          Car(id: 'D', row: 2, col: 0, length: 3, orientation: CarOrientation.horizontal),
-          Car(id: 'E', row: 2, col: 3, length: 2, orientation: CarOrientation.vertical),
-          Car(id: 'F', row: 3, col: 2, length: 2, orientation: CarOrientation.vertical),
+          Car(id: 'T', row: 0, col: 0, length: 2, orientation: CarOrientation.horizontal, vehicleType: VehicleType.policeCar),
+          Car(id: 'A', row: 0, col: 2, length: 3, orientation: CarOrientation.horizontal, vehicleType: VehicleType.bus),
+          Car(id: 'B', row: 0, col: 3, length: 2, orientation: CarOrientation.vertical, vehicleType: VehicleType.sedan),
+          Car(id: 'C', row: 1, col: 2, length: 2, orientation: CarOrientation.vertical, vehicleType: VehicleType.sedan),
+          Car(id: 'D', row: 2, col: 0, length: 3, orientation: CarOrientation.horizontal, vehicleType: VehicleType.bus),
+          Car(id: 'E', row: 2, col: 3, length: 2, orientation: CarOrientation.vertical, vehicleType: VehicleType.sedan),
+          Car(id: 'F', row: 3, col: 2, length: 2, orientation: CarOrientation.vertical, vehicleType: VehicleType.sedan),
         ],
         exit: Exit(row: 0, col: 4, orientation: CarOrientation.horizontal),
         targetCarId: 'T',
@@ -112,10 +112,10 @@ void main() {
         exit: Exit(row: 0, col: 3, orientation: CarOrientation.horizontal),
         targetCar: Car(
           id: 'T', row: 0, col: 0, length: 2,
-          orientation: CarOrientation.horizontal, isTarget: true,
+          orientation: CarOrientation.horizontal, isTarget: true, vehicleType: VehicleType.policeCar
         ),
         blockingCars: [
-          Car(id: 'A', row: 1, col: 0, length: 2, orientation: CarOrientation.vertical),
+          Car(id: 'A', row: 1, col: 0, length: 2, orientation: CarOrientation.vertical, vehicleType: VehicleType.sedan),
         ],
       );
       final state = GameState.fromLevel(level);
@@ -131,7 +131,7 @@ void main() {
       final state = GameState(
         gridSize: 4,
         cars: [
-          Car(id: 'T', row: 0, col: 3, length: 2, orientation: CarOrientation.horizontal, isTarget: true),
+          Car(id: 'T', row: 0, col: 3, length: 2, orientation: CarOrientation.horizontal, vehicleType: VehicleType.policeCar),
         ],
         exit: Exit(row: 0, col: 3, orientation: CarOrientation.horizontal),
         targetCarId: 'T',
@@ -143,7 +143,7 @@ void main() {
     test('BFS 搜索过大的状态空间应安全退出不崩溃', () {
       // 8x8 大关卡
       final cars = <Car>[
-        Car(id: 'T', row: 0, col: 0, length: 2, orientation: CarOrientation.horizontal, isTarget: true),
+        Car(id: 'T', row: 0, col: 0, length: 2, orientation: CarOrientation.horizontal, vehicleType: VehicleType.policeCar),
       ];
       // 添加 9 辆堵塞车增加状态空间
       for (int i = 0; i < 9; i++) {
@@ -155,6 +155,7 @@ void main() {
           orientation: i.isEven
               ? CarOrientation.horizontal
               : CarOrientation.vertical,
+          vehicleType: i.isEven ? VehicleType.sedan : VehicleType.bus,
         ));
       }
       final state = GameState(
