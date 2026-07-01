@@ -9,7 +9,7 @@ const List<String> kBuiltInLevelAssets = [
   'assets/levels/easy/level_003.json',
   'assets/levels/medium/level_004.json',
   'assets/levels/medium/level_005.json',
-  'assets/levels/hard/level_006.json',
+  'assets/levels/medium/level_006.json',
   'assets/levels/medium/level_007.json',
   'assets/levels/medium/level_008.json',
   'assets/levels/medium/level_009.json',

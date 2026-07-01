@@ -81,10 +81,10 @@ class _GameGridState extends State<GameGrid>
     );
   }
 
-  /// 构造车辆视觉偏移量。
+  /// 构造车辆视觉偏移量，自动约束到碰撞边界。
   ///
-  /// 计算逻辑：车辆应出现在手指当前位置的正下方。
-  /// offset = (手指当前位置) - (车辆当前网格像素位置) - (手指在车内初始偏移)
+  /// 计算逻辑：车辆应出现在手指当前位置的正下方，但不得超过
+  /// 碰撞检测允许的范围（不超出边界、不与其他车重叠）。
   Offset? _buildDragOffset(double unitSize, GameState state) {
     if (_selectedCarId == null ||
         _fingerStartPos == null ||
@@ -93,12 +93,13 @@ class _GameGridState extends State<GameGrid>
       return null;
     }
 
-    final car = state.cars.firstWhere((c) => c.id == _selectedCarId);
+    final carIdx = state.cars.indexWhere((c) => c.id == _selectedCarId);
+    if (carIdx < 0) return null;
+    final car = state.cars[carIdx];
     final carPixelX = car.col * unitSize;
     final carPixelY = car.row * unitSize;
 
     // 手指在车内的初始偏移量（拖拽开始时，手指在车内点击的位置）
-    // 这个值在拖拽过程中是常量
     final fingerInCarOffset = Offset(
       _fingerStartPos!.dx - _carStartPixelPos!.dx,
       _fingerStartPos!.dy - _carStartPixelPos!.dy,
@@ -111,8 +112,33 @@ class _GameGridState extends State<GameGrid>
     // 视觉偏移 = 目标位置 - 车辆当前网格位置
     double dx = targetCarPixelX - carPixelX;
     double dy = targetCarPixelY - carPixelY;
+    double rawPixelOffset;
 
-    // 只保留朝向方向的偏移
+    if (car.orientation == CarOrientation.horizontal) {
+      rawPixelOffset = dx;
+    } else {
+      rawPixelOffset = dy;
+    }
+
+    // 将像素偏移转为网格步数，并用碰撞检测约束
+    final rawSteps = (rawPixelOffset / unitSize);
+    // 仅在实际显着偏移时才做约束，避免浮点误差导致微抖动
+    if (rawSteps.abs() >= 0.01) {
+      final roundedSteps = rawSteps.round();
+      final (minSteps, maxSteps) =
+          CollisionDetector.getValidMoveRange(state, car);
+      final clampedSteps = roundedSteps.clamp(minSteps, maxSteps);
+
+      // 将约束后的步数转回像素
+      final clampedPixel = clampedSteps * unitSize;
+
+      if (car.orientation == CarOrientation.horizontal) {
+        return Offset(clampedPixel, 0);
+      }
+      return Offset(0, clampedPixel);
+    }
+
+    // 偏移过小，直接返回朝向方向的偏移
     if (car.orientation == CarOrientation.horizontal) {
       return Offset(dx, 0);
     }
@@ -168,7 +194,12 @@ class _GameGridState extends State<GameGrid>
     final state = provider.state;
     if (state == null) return;
 
-    final car = state.cars.firstWhere((c) => c.id == _selectedCarId);
+    final carIdx = state.cars.indexWhere((c) => c.id == _selectedCarId);
+    if (carIdx < 0) {
+      _resetDragState();
+      return;
+    }
+    final car = state.cars[carIdx];
 
     // 更新当前手指位置（累加增量）
     _currentFingerPos = _currentFingerPos! + details.delta;
