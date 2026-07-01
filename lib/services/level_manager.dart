@@ -73,6 +73,7 @@ class LevelManager {
   List<Level> get loadedLevels => List.unmodifiable(_loadedLevels);
 
   Future<void> initialize() async {
+    _loadedLevels.clear();
     await _loadBuiltInLevels();
     _restoreProgress();
   }
