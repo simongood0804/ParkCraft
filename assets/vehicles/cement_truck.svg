@@ -1,1 +1,441 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100"><path d="M 12,2 L 288,2 Q 298,2 298,12 L 298,88 Q 298,98 288,98 L 12,98 Q 2,98 2,88 L 2,12 Q 2,2 12,2 Z" fill="#8D6E63"/><ellipse cx="160" cy="50" rx="45" ry="36" fill="#BDBDBD" stroke="#9E9E9E" stroke-width="1.5"/><ellipse cx="160" cy="50" rx="38" ry="30" fill="none" stroke="#9E9E9E" stroke-width="0.8"/><line x1="125" y1="18" x2="125" y2="82" stroke="#9E9E9E" stroke-width="0.6"/><line x1="137" y1="18" x2="137" y2="82" stroke="#9E9E9E" stroke-width="0.6"/><line x1="149" y1="18" x2="149" y2="82" stroke="#9E9E9E" stroke-width="0.6"/><line x1="161" y1="18" x2="161" y2="82" stroke="#9E9E9E" stroke-width="0.6"/><line x1="173" y1="18" x2="173" y2="82" stroke="#9E9E9E" stroke-width="0.6"/><line x1="185" y1="18" x2="185" y2="82" stroke="#9E9E9E" stroke-width="0.6"/><path d="M 4,12 L 55,12 Q 58,12 58,15 L 58,85 Q 58,88 55,88 L 4,88 Q 2,88 2,85 L 2,15 Q 2,12 4,12 Z" fill="#FFA726"/><rect x="6" y="19.0" width="11.0" height="38.0" rx="3" fill="rgba(255,255,255,0.35)"/><rect x="24.0" y="2" width="42.00000000000001" height="4" rx="2" fill="#333"/><rect x="24.0" y="94" width="42.00000000000001" height="4" rx="2" fill="#333"/><rect x="216.0" y="2" width="42.00000000000001" height="4" rx="2" fill="#333"/><rect x="216.0" y="94" width="42.00000000000001" height="4" rx="2" fill="#333"/></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 300 100"
+   version="1.1"
+   id="svg45"
+   sodipodi:docname="cement_truck.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview45"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="2.9333333"
+     inkscape:cx="149.82955"
+     inkscape:cy="49.943182"
+     inkscape:window-width="1492"
+     inkscape:window-height="1206"
+     inkscape:window-x="1023"
+     inkscape:window-y="279"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg45" />
+  <defs
+     id="defs13">
+    <linearGradient
+       id="greenCab"
+       x1="3.2659863"
+       y1="26.944387"
+       x2="71.851699"
+       y2="95.5301"
+       gradientTransform="matrix(0,-1.2247449,0.81649658,0,19.181819,96.681818)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0%"
+         style="stop-color:#66BB6A"
+         id="stop1" />
+      <stop
+         offset="40%"
+         style="stop-color:#43A047"
+         id="stop2" />
+      <stop
+         offset="100%"
+         style="stop-color:#2E7D32"
+         id="stop3" />
+    </linearGradient>
+    <linearGradient
+       id="drumWhite"
+       x1="0%"
+       y1="0%"
+       x2="0%"
+       y2="100%">
+      <stop
+         offset="0%"
+         style="stop-color:#FAFAFA"
+         id="stop4" />
+      <stop
+         offset="25%"
+         style="stop-color:#EEEEEE"
+         id="stop5" />
+      <stop
+         offset="50%"
+         style="stop-color:#E0E0E0"
+         id="stop6" />
+      <stop
+         offset="75%"
+         style="stop-color:#D6D6D6"
+         id="stop7" />
+      <stop
+         offset="100%"
+         style="stop-color:#C8C8C8"
+         id="stop8" />
+    </linearGradient>
+    <linearGradient
+       id="cabGlass"
+       x1="0%"
+       y1="0%"
+       x2="0%"
+       y2="100%">
+      <stop
+         offset="0%"
+         style="stop-color:#2A3A4A;stop-opacity:0.8"
+         id="stop9" />
+      <stop
+         offset="100%"
+         style="stop-color:#1A2530;stop-opacity:0.95"
+         id="stop10" />
+    </linearGradient>
+    <linearGradient
+       id="metalCyl"
+       x1="0%"
+       y1="0%"
+       x2="100%"
+       y2="0%">
+      <stop
+         offset="0%"
+         style="stop-color:#BDBDBD"
+         id="stop11" />
+      <stop
+         offset="50%"
+         style="stop-color:#E0E0E0"
+         id="stop12" />
+      <stop
+         offset="100%"
+         style="stop-color:#9E9E9E"
+         id="stop13" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#cabGlass"
+       id="linearGradient45"
+       x1="6.8033605"
+       y1="52.915026"
+       x2="6.8033605"
+       y2="84.664042"
+       gradientTransform="matrix(0,-2.0430125,0.56694671,0,18.727279,97.944806)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <!-- 绿色驾驶室 -->
+  <!-- 前挡风 -->
+  <!-- 侧窗 -->
+  <!-- 格栅 -->
+  <!-- 驾驶室顶 -->
+  <!-- 连接区 -->
+  <!-- 水泥搅拌罐 -->
+  <ellipse
+     cx="190"
+     cy="50"
+     rx="100"
+     ry="36"
+     fill="url(#drumWhite)"
+     id="ellipse17" />
+  <!-- 罐体螺旋纹 -->
+  <g
+     fill="none"
+     stroke="#BBBBBB"
+     stroke-width="1.2"
+     opacity="0.5"
+     id="g24">
+    <path
+       d="M 115,30 Q 140,50 115,70"
+       id="path18" />
+    <path
+       d="M 135,22 Q 170,50 135,78"
+       id="path19" />
+    <path
+       d="M 160,16 Q 205,50 160,84"
+       id="path20" />
+    <path
+       d="M 190,14 Q 240,50 190,86"
+       id="path21" />
+    <path
+       d="M 220,16 Q 265,50 220,84"
+       id="path22" />
+    <path
+       d="M 245,22 Q 280,50 245,78"
+       id="path23" />
+    <path
+       d="M 265,30 Q 290,50 265,70"
+       id="path24" />
+  </g>
+  <!-- 罐口 -->
+  <ellipse
+     cx="100"
+     cy="50"
+     rx="10"
+     ry="18"
+     fill="#AAA"
+     stroke="#888"
+     stroke-width="1"
+     id="ellipse24" />
+  <ellipse
+     cx="100"
+     cy="50"
+     rx="6"
+     ry="12"
+     fill="#777"
+     id="ellipse25" />
+  <!-- 支撑架 -->
+  <path
+     d="m 112.04545,27.159091 -5,-5 5,-5"
+     fill="none"
+     stroke="#888888"
+     stroke-width="2"
+     id="path25" />
+  <path
+     d="m 111.36364,72.159091 -5,5 5,5"
+     fill="none"
+     stroke="#888888"
+     stroke-width="2"
+     id="path26" />
+  <!-- 液压缸 -->
+  <rect
+     x="92"
+     y="34"
+     width="16"
+     height="6"
+     rx="3"
+     fill="url(#metalCyl)"
+     stroke="#999"
+     stroke-width="0.5"
+     id="rect26" />
+  <rect
+     x="92"
+     y="60"
+     width="16"
+     height="6"
+     rx="3"
+     fill="url(#metalCyl)"
+     stroke="#999"
+     stroke-width="0.5"
+     id="rect27" />
+  <!-- 操作平台 -->
+  <g
+     stroke="#888888"
+     stroke-width="1"
+     fill="none"
+     id="g31"
+     transform="translate(-148.29545,-0.68181818)">
+    <line
+       x1="260"
+       y1="30"
+       x2="260"
+       y2="72"
+       id="line27" />
+    <line
+       x1="255"
+       y1="35"
+       x2="265"
+       y2="35"
+       id="line28" />
+    <line
+       x1="255"
+       y1="45"
+       x2="265"
+       y2="45"
+       id="line29" />
+    <line
+       x1="255"
+       y1="55"
+       x2="265"
+       y2="55"
+       id="line30" />
+    <line
+       x1="255"
+       y1="65"
+       x2="265"
+       y2="65"
+       id="line31" />
+  </g>
+  <!-- 水箱 -->
+  <!-- 双边后视镜 -->
+  <!-- 大灯 -->
+  <!-- 尾灯 -->
+  <!-- 四轮 -->
+  <rect
+     x="58.909092"
+     y="3.9318182"
+     width="24"
+     height="5"
+     rx="2.5"
+     fill="#1a1a1a"
+     id="rect40" />
+  <rect
+     x="58.56818"
+     y="91.409088"
+     width="24"
+     height="5"
+     rx="2.5"
+     fill="#1a1a1a"
+     id="rect41" />
+  <rect
+     x="171.13637"
+     y="11.090909"
+     width="39.772728"
+     height="4.5441332"
+     rx="4.971591"
+     fill="#1a1a1a"
+     id="rect43"
+     style="stroke-width:1.34437" />
+  <rect
+     x="171.13637"
+     y="84.705872"
+     width="39.772728"
+     height="4.5441332"
+     rx="4.971591"
+     fill="#1a1a1a"
+     id="rect45"
+     style="stroke-width:1.34437" />
+  <!-- 轮廓 -->
+  <ellipse
+     cx="190"
+     cy="50"
+     rx="100"
+     ry="36"
+     fill="none"
+     stroke="#999"
+     stroke-width="1.2"
+     id="ellipse45" />
+  <path
+     d="m 41.181819,88.681818 v -72 q 0,-7.9999997 8,-7.9999997 h 40 q 8,0 8,7.9999997 v 72 q 0,4 -6,4 h -44 q -6,0 -6,-4 z"
+     fill="url(#greenCab)"
+     id="path13"
+     style="fill:url(#greenCab)" />
+  <path
+     d="M 48.727279,84.045454 V 19.181818 l 18,2.316558 v 60.23052 z"
+     fill="url(#cabGlass)"
+     id="path14"
+     style="fill:url(#linearGradient45);stroke-width:1.07623" />
+  <rect
+     x="44.250896"
+     y="61.804058"
+     width="5.4536476"
+     height="22.900492"
+     rx="0.90894133"
+     fill="#1b5e20"
+     opacity="0.5"
+     id="rect15"
+     style="stroke-width:0.862206" />
+  <line
+     x1="45.614315"
+     y1="66.711304"
+     x2="48.341137"
+     y2="66.711304"
+     stroke="#2e7d32"
+     stroke-width="0.862206"
+     id="line15" />
+  <line
+     x1="45.614315"
+     y1="73.254295"
+     x2="48.341137"
+     y2="73.254295"
+     stroke="#2e7d32"
+     stroke-width="0.862206"
+     id="line16" />
+  <line
+     x1="45.614315"
+     y1="79.797295"
+     x2="48.341137"
+     y2="79.797295"
+     stroke="#2e7d32"
+     stroke-width="0.862206"
+     id="line17" />
+  <path
+     d="m 79.022719,76.045459 v -52.00001 l -6,2 q -2,2 -2,6 v 36.00001 q 0,4 2,6 z"
+     fill="#388e3c"
+     id="path17" />
+  <ellipse
+     cx="47.780598"
+     cy="61.308319"
+     rx="2.1203661"
+     ry="11.289815"
+     fill="#388e3c"
+     transform="matrix(0.84431877,-0.53584123,0.04893137,0.99880214,0,0)"
+     id="ellipse31"
+     style="stroke-width:0.924634" />
+  <ellipse
+     cx="53.631878"
+     cy="39.656384"
+     rx="2.1203661"
+     ry="11.289815"
+     fill="#388e3c"
+     transform="matrix(0.84431877,0.53584123,-0.04893137,0.99880214,0,0)"
+     id="ellipse33"
+     style="stroke-width:0.924634" />
+  <ellipse
+     cx="45.159832"
+     cy="29.089066"
+     rx="2.2723532"
+     ry="4.907248"
+     fill="#fff5e0"
+     opacity="0.8"
+     id="ellipse35"
+     style="stroke-width:0.862206" />
+  <ellipse
+     cx="45.159832"
+     cy="74.890045"
+     rx="2.2723532"
+     ry="4.907248"
+     fill="#fff5e0"
+     opacity="0.8"
+     id="ellipse37"
+     style="stroke-width:0.862206" />
+  <rect
+     x="-88.159088"
+     y="42.70454"
+     width="4"
+     height="4"
+     rx="1"
+     fill="#d32f2f"
+     opacity="0.85"
+     id="rect38"
+     transform="rotate(-90)" />
+  <rect
+     x="-18.159088"
+     y="42.70454"
+     width="4"
+     height="4"
+     rx="1"
+     fill="#d32f2f"
+     opacity="0.85"
+     id="rect39"
+     transform="rotate(-90)" />
+  <path
+     d="m 41.522729,88.340909 v -72 q 0,-7.9999997 8,-7.9999997 h 40 q 8,0 8,7.9999997 v 72 q 0,4 -6,4 h -44 q -6,0 -6,-4 z"
+     fill="none"
+     stroke="#1b5e20"
+     stroke-width="1.2"
+     id="path45" />
+  <rect
+     style="fill:#000000;fill-opacity:0"
+     id="rect46"
+     width="7.5"
+     height="1.0227273"
+     x="254.31818"
+     y="56.93182"
+     rx="3" />
+  <rect
+     style="fill:#000000;fill-opacity:0"
+     id="rect47"
+     width="22.84091"
+     height="70.909088"
+     x="250.90909"
+     y="11.25"
+     rx="3" />
+  <rect
+     style="fill:#000000;fill-opacity:0"
+     id="rect48"
+     width="6.1363635"
+     height="15.681818"
+     x="256.02274"
+     y="11.590909"
+     rx="3" />
+</svg>

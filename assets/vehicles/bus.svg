@@ -1,1 +1,733 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100"><path d="M 12,2 L 288,2 Q 298,2 298,12 L 298,88 Q 298,98 288,98 L 12,98 Q 2,98 2,88 L 2,12 Q 2,2 12,2 Z" fill="#42A5F5"/><rect x="4" y="25.0" width="66.0" height="50.0" rx="3" fill="rgba(255,255,255,0.35)"/><rect x="84.00000000000001" y="27.5" width="33.5" height="45.0" rx="2" fill="rgba(255,255,255,0.25)"/><rect x="121.50000000000001" y="27.5" width="33.5" height="45.0" rx="2" fill="rgba(255,255,255,0.25)"/><rect x="159.0" y="27.5" width="33.5" height="45.0" rx="2" fill="rgba(255,255,255,0.25)"/><rect x="196.5" y="27.5" width="33.5" height="45.0" rx="2" fill="rgba(255,255,255,0.25)"/><rect x="242.0" y="29.0" width="54.0" height="42.0" rx="3" fill="rgba(255,255,255,0.30)"/><rect x="24.0" y="2" width="42.00000000000001" height="4" rx="2" fill="#333"/><rect x="24.0" y="94" width="42.00000000000001" height="4" rx="2" fill="#333"/><rect x="216.0" y="2" width="42.00000000000001" height="4" rx="2" fill="#333"/><rect x="216.0" y="94" width="42.00000000000001" height="4" rx="2" fill="#333"/></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 300 100"
+   version="1.1"
+   id="svg44"
+   sodipodi:docname="bus.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview44"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="2.9333333"
+     inkscape:cx="149.82955"
+     inkscape:cy="49.602273"
+     inkscape:window-width="1690"
+     inkscape:window-height="1134"
+     inkscape:window-x="1083"
+     inkscape:window-y="290"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg44" />
+  <defs
+     id="defs6">
+    <linearGradient
+       id="yellowBus"
+       x1="0%"
+       y1="0%"
+       x2="0%"
+       y2="100%">
+      <stop
+         offset="0%"
+         style="stop-color:#FFEE58"
+         id="stop1" />
+      <stop
+         offset="30%"
+         style="stop-color:#FDD835"
+         id="stop2" />
+      <stop
+         offset="70%"
+         style="stop-color:#FBC02D"
+         id="stop3" />
+      <stop
+         offset="100%"
+         style="stop-color:#F9A825"
+         id="stop4" />
+    </linearGradient>
+    <linearGradient
+       id="windowGlass"
+       x1="0%"
+       y1="0%"
+       x2="0%"
+       y2="100%">
+      <stop
+         offset="0%"
+         style="stop-color:#3A4A5A;stop-opacity:0.75"
+         id="stop5" />
+      <stop
+         offset="100%"
+         style="stop-color:#1A2A3A;stop-opacity:0.9"
+         id="stop6" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#windowGlass"
+       id="linearGradient45"
+       x1="58.704189"
+       y1="20.237057"
+       x2="58.704189"
+       y2="44.153578"
+       gradientTransform="scale(0.91986621,1.0871146)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#windowGlass"
+       id="linearGradient46"
+       x1="86.969169"
+       y1="20.237057"
+       x2="86.969169"
+       y2="44.153578"
+       gradientTransform="scale(0.91986621,1.0871146)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#windowGlass"
+       id="linearGradient47"
+       x1="115.23415"
+       y1="20.237057"
+       x2="115.23415"
+       y2="44.153578"
+       gradientTransform="scale(0.91986621,1.0871146)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#windowGlass"
+       id="linearGradient48"
+       x1="143.49913"
+       y1="20.237057"
+       x2="143.49913"
+       y2="44.153578"
+       gradientTransform="scale(0.91986621,1.0871146)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#windowGlass"
+       id="linearGradient49"
+       x1="171.76411"
+       y1="20.237057"
+       x2="171.76411"
+       y2="44.153578"
+       gradientTransform="scale(0.91986621,1.0871146)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#windowGlass"
+       id="linearGradient50"
+       x1="200.02909"
+       y1="20.237057"
+       x2="200.02909"
+       y2="44.153578"
+       gradientTransform="scale(0.91986621,1.0871146)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#windowGlass"
+       id="linearGradient51"
+       x1="228.29407"
+       y1="20.237057"
+       x2="228.29407"
+       y2="44.153578"
+       gradientTransform="scale(0.91986621,1.0871146)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#windowGlass"
+       id="linearGradient52"
+       x1="256.55905"
+       y1="20.237057"
+       x2="256.55905"
+       y2="44.153578"
+       gradientTransform="scale(0.91986621,1.0871146)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#windowGlass"
+       id="linearGradient53"
+       x1="19.27815"
+       y1="61.624171"
+       x2="19.27815"
+       y2="134.45274"
+       gradientTransform="scale(2.8010987,0.35700277)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#windowGlass"
+       id="linearGradient58"
+       x1="203.51314"
+       y1="45.63833"
+       x2="203.51314"
+       y2="57.470489"
+       gradientTransform="matrix(0.87916309,0,0,0.44350213,-1.6679035,57.454553)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#windowGlass"
+       id="linearGradient59"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.87916309,0,0,0.44350213,-109.44064,57.068188)"
+       x1="203.51314"
+       y1="45.63833"
+       x2="203.51314"
+       y2="57.470489" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#windowGlass"
+       id="linearGradient53-2"
+       x1="19.278151"
+       y1="61.624172"
+       x2="19.278151"
+       y2="134.45274"
+       gradientTransform="scale(2.8010987,0.35700277)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#windowGlass"
+       id="linearGradient45-3"
+       x1="58.704189"
+       y1="20.237057"
+       x2="58.704189"
+       y2="44.15358"
+       gradientTransform="scale(0.91986621,1.0871146)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#windowGlass"
+       id="linearGradient46-5"
+       x1="86.96917"
+       y1="20.237057"
+       x2="86.96917"
+       y2="44.15358"
+       gradientTransform="scale(0.91986621,1.0871146)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#windowGlass"
+       id="linearGradient47-7"
+       x1="115.23415"
+       y1="20.237057"
+       x2="115.23415"
+       y2="44.15358"
+       gradientTransform="scale(0.91986621,1.0871146)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#windowGlass"
+       id="linearGradient48-3"
+       x1="143.49913"
+       y1="20.237057"
+       x2="143.49913"
+       y2="44.15358"
+       gradientTransform="scale(0.91986621,1.0871146)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#windowGlass"
+       id="linearGradient49-7"
+       x1="171.76411"
+       y1="20.237057"
+       x2="171.76411"
+       y2="44.15358"
+       gradientTransform="scale(0.91986621,1.0871146)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#windowGlass"
+       id="linearGradient50-9"
+       x1="200.02908"
+       y1="20.237057"
+       x2="200.02908"
+       y2="44.15358"
+       gradientTransform="scale(0.91986621,1.0871146)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#windowGlass"
+       id="linearGradient51-0"
+       x1="228.29407"
+       y1="20.237057"
+       x2="228.29407"
+       y2="44.15358"
+       gradientTransform="scale(0.91986621,1.0871146)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#windowGlass"
+       id="linearGradient52-2"
+       x1="256.55905"
+       y1="20.237057"
+       x2="256.55905"
+       y2="44.15358"
+       gradientTransform="scale(0.91986621,1.0871146)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <!-- 长条巴士车身 -->
+  <path
+     d="M 14.659091,11.659091 H 284.65909 q 10,0 10,10 v 56 q 0,10 -10,10 H 14.659091 q -10.0000001,0 -10.0000001,-10 v -56 q 0,-10 10.0000001,-10 z"
+     fill="url(#yellowBus)"
+     id="path6"
+     style="fill:#fbc52f;fill-opacity:1" />
+  <!-- 黑色腰线 -->
+  <rect
+     x="-80.5"
+     y="272.20453"
+     width="60.61364"
+     height="14"
+     rx="0.42092803"
+     fill="#212121"
+     id="rect6"
+     transform="rotate(-90)"
+     style="stroke-width:0.458764" />
+  <rect
+     x="-79.36364"
+     y="21.363636"
+     width="58.56818"
+     height="18.65909"
+     rx="0.20336175"
+     fill="#212121"
+     opacity="0.6"
+     id="rect7"
+     transform="rotate(-90)"
+     style="stroke-width:0.973979" />
+  <!-- 前挡风 -->
+  <!-- 大灯 -->
+  <ellipse
+     cx="16.03495"
+     cy="31.068182"
+     rx="4.9948387"
+     ry="3"
+     fill="#fff5e0"
+     opacity="0.7"
+     id="ellipse7"
+     style="stroke-width:0.999483" />
+  <ellipse
+     cx="48.001919"
+     cy="31.068182"
+     rx="3.9958708"
+     ry="2.5"
+     fill="#fff5e0"
+     opacity="0.7"
+     id="ellipse8"
+     style="stroke-width:0.999483" />
+  <ellipse
+     cx="16.03495"
+     cy="67.068184"
+     rx="4.9948387"
+     ry="3"
+     fill="#fff5e0"
+     opacity="0.7"
+     id="ellipse9"
+     style="stroke-width:0.999483" />
+  <ellipse
+     cx="48.001919"
+     cy="67.068184"
+     rx="3.9958708"
+     ry="2.5"
+     fill="#fff5e0"
+     opacity="0.7"
+     id="ellipse10"
+     style="stroke-width:0.999483" />
+  <!-- 侧窗 - 对称分布 -->
+  <g
+     fill="url(#windowGlass)"
+     id="g17"
+     style="fill:url(#linearGradient53)"
+     transform="matrix(1.0066844,0,0,0.35751748,-12.292781,6.975524)">
+    <rect
+       x="54"
+       y="22"
+       width="22"
+       height="26"
+       rx="2"
+       id="rect10"
+       style="fill:url(#linearGradient45)" />
+    <rect
+       x="80"
+       y="22"
+       width="22"
+       height="26"
+       rx="2"
+       id="rect11"
+       style="fill:url(#linearGradient46)" />
+    <rect
+       x="106"
+       y="22"
+       width="22"
+       height="26"
+       rx="2"
+       id="rect12"
+       style="fill:url(#linearGradient47)" />
+    <rect
+       x="132"
+       y="22"
+       width="22"
+       height="26"
+       rx="2"
+       id="rect13"
+       style="fill:url(#linearGradient48)" />
+    <rect
+       x="158"
+       y="22"
+       width="22"
+       height="26"
+       rx="2"
+       id="rect14"
+       style="fill:url(#linearGradient49)" />
+    <rect
+       x="184"
+       y="22"
+       width="22"
+       height="26"
+       rx="2"
+       id="rect15"
+       style="fill:url(#linearGradient50)" />
+    <rect
+       x="210"
+       y="22"
+       width="22"
+       height="26"
+       rx="2"
+       id="rect16"
+       style="fill:url(#linearGradient51)" />
+    <rect
+       x="236"
+       y="22"
+       width="22"
+       height="26"
+       rx="2"
+       id="rect17"
+       style="fill:url(#linearGradient52)" />
+  </g>
+  <g
+     fill="url(#windowGlass)"
+     id="g17-9"
+     style="fill:url(#linearGradient53-2)"
+     transform="matrix(1.0050132,0,0,0.35751748,-12.225264,67.08916)">
+    <rect
+       x="54"
+       y="22"
+       width="22"
+       height="26"
+       rx="2"
+       id="rect10-9"
+       style="fill:url(#linearGradient45-3)" />
+    <rect
+       x="80"
+       y="22"
+       width="22"
+       height="26"
+       rx="2"
+       id="rect11-7"
+       style="fill:url(#linearGradient46-5)" />
+    <rect
+       x="106"
+       y="22"
+       width="22"
+       height="26"
+       rx="2"
+       id="rect12-0"
+       style="fill:url(#linearGradient47-7)" />
+    <rect
+       x="132"
+       y="22"
+       width="22"
+       height="26"
+       rx="2"
+       id="rect13-3"
+       style="fill:url(#linearGradient48-3)" />
+    <rect
+       x="158"
+       y="22"
+       width="22"
+       height="26"
+       rx="2"
+       id="rect14-9"
+       style="fill:url(#linearGradient49-7)" />
+    <rect
+       x="184"
+       y="22"
+       width="22"
+       height="26"
+       rx="2"
+       id="rect15-8"
+       style="fill:url(#linearGradient50-9)" />
+    <rect
+       x="210"
+       y="22"
+       width="22"
+       height="26"
+       rx="2"
+       id="rect16-6"
+       style="fill:url(#linearGradient51-0)" />
+    <rect
+       x="236"
+       y="22"
+       width="22"
+       height="26"
+       rx="2"
+       id="rect17-5"
+       style="fill:url(#linearGradient52-2)" />
+  </g>
+  <!-- 车窗分隔 -->
+  <!-- 空调机组 1 -->
+  <rect
+     x="-67.391891"
+     y="67.221741"
+     width="35.738342"
+     height="23.374708"
+     rx="1.9854635"
+     fill="#e0e0e0"
+     stroke="#bbbbbb"
+     stroke-width="0.761656"
+     id="rect24"
+     transform="rotate(-90)" />
+  <line
+     x1="74.234154"
+     y1="63.420971"
+     x2="74.234154"
+     y2="35.624485"
+     stroke="#999999"
+     stroke-width="0.761656"
+     id="line25" />
+  <line
+     x1="81.246567"
+     y1="63.420971"
+     x2="81.246567"
+     y2="35.624485"
+     stroke="#999999"
+     stroke-width="0.761656"
+     id="line26" />
+  <rect
+     x="-66.573715"
+     y="193.78992"
+     width="35.738342"
+     height="23.374708"
+     rx="1.9854635"
+     fill="#e0e0e0"
+     stroke="#bbbbbb"
+     stroke-width="0.761656"
+     id="rect24-6"
+     transform="rotate(-90)" />
+  <line
+     x1="200.80234"
+     y1="62.602791"
+     x2="200.80234"
+     y2="34.806309"
+     stroke="#999999"
+     stroke-width="0.761656"
+     id="line25-0" />
+  <line
+     x1="207.81474"
+     y1="62.602791"
+     x2="207.81474"
+     y2="34.806309"
+     stroke="#999999"
+     stroke-width="0.761656"
+     id="line26-3" />
+  <!-- 空调机组 2 -->
+  <!-- 天窗 -->
+  <rect
+     x="123.03496"
+     y="36.784966"
+     width="36.384624"
+     height="23.702805"
+     rx="2.7288468"
+     fill="#dddddd"
+     stroke="#bbbbbb"
+     stroke-width="1.16083"
+     id="rect28-6" />
+  <!-- 应急出口 -->
+  <rect
+     x="240.37851"
+     y="30.461742"
+     width="17.422142"
+     height="37.099236"
+     rx="1.4518452"
+     fill="#ffb300"
+     opacity="0.5"
+     stroke="#e65100"
+     stroke-width="1.05931"
+     id="rect29" />
+  <!-- 前门 -->
+  <!-- 中门 -->
+  <rect
+     x="175.17287"
+     y="76.945595"
+     width="14.563357"
+     height="10.495175"
+     rx="1.0402398"
+     fill="none"
+     stroke="#212121"
+     stroke-width="0.936642"
+     id="rect32" />
+  <rect
+     x="177.25334"
+     y="77.695244"
+     width="10.402398"
+     height="5.2475877"
+     rx="1.0402398"
+     fill="url(#windowGlass)"
+     id="rect33"
+     style="fill:url(#linearGradient58);stroke-width:0.624428" />
+  <rect
+     x="67.400139"
+     y="76.559235"
+     width="14.563357"
+     height="10.495175"
+     rx="1.0402398"
+     fill="none"
+     stroke="#212121"
+     stroke-width="0.936642"
+     id="rect32-8" />
+  <rect
+     x="69.480614"
+     y="77.308884"
+     width="10.402398"
+     height="5.2475877"
+     rx="1.0402398"
+     fill="url(#windowGlass)"
+     id="rect33-0"
+     style="fill:url(#linearGradient59);stroke-width:0.624428" />
+  <!-- 后门 -->
+  <rect
+     x="266.19623"
+     y="81.264389"
+     width="14.789397"
+     height="5.9484882"
+     rx="1.0563855"
+     fill="none"
+     stroke="#e65100"
+     stroke-width="0.710603"
+     opacity="0.6"
+     id="rect34" />
+  <!-- 双边后视镜（车头侧） -->
+  <ellipse
+     cx="2.1228642"
+     cy="38.346275"
+     rx="3.9960494"
+     ry="6.9996877"
+     fill="#f9a825"
+     transform="matrix(0.97810389,-0.20811724,0.20770633,0.97819123,0,0)"
+     id="ellipse34"
+     style="stroke-width:0.999484" />
+  <ellipse
+     cx="292.26413"
+     cy="-24.635195"
+     rx="3.9960494"
+     ry="6.9996877"
+     fill="#f9a825"
+     transform="matrix(0.97810389,0.20811724,-0.20770633,0.97819123,0,0)"
+     id="ellipse35"
+     style="stroke-width:0.999484" />
+  <ellipse
+     cx="22.506411"
+     cy="57.641293"
+     rx="3.9960494"
+     ry="6.9996877"
+     fill="#f9a825"
+     transform="matrix(0.97810389,0.20811724,-0.20770633,0.97819123,0,0)"
+     id="ellipse36"
+     style="stroke-width:0.999484" />
+  <ellipse
+     cx="272.02222"
+     cy="119.95588"
+     rx="3.9960494"
+     ry="6.9996877"
+     fill="#f9a825"
+     transform="matrix(0.97810389,-0.20811724,0.20770633,0.97819123,0,0)"
+     id="ellipse37"
+     style="stroke-width:0.999484" />
+  <!-- 尾灯 -->
+  <rect
+     x="-22.832859"
+     y="275.20453"
+     width="1.6837121"
+     height="5"
+     rx="0.21046402"
+     fill="#d32f2f"
+     opacity="0.85"
+     id="rect37"
+     transform="rotate(-90)"
+     style="stroke-width:0.458764" />
+  <rect
+     x="-79.237213"
+     y="275.20453"
+     width="1.6837121"
+     height="5"
+     rx="0.21046402"
+     fill="#d32f2f"
+     opacity="0.85"
+     id="rect38"
+     transform="rotate(-90)"
+     style="stroke-width:0.458764" />
+  <rect
+     x="-24.324333"
+     y="10.795455"
+     width="1.626894"
+     height="5"
+     rx="0.20336175"
+     fill="#d32f2f"
+     opacity="0.85"
+     id="rect39"
+     transform="rotate(-90)"
+     style="stroke-width:0.450956" />
+  <rect
+     x="-78.825287"
+     y="10.795455"
+     width="1.626894"
+     height="5"
+     rx="0.20336175"
+     fill="#d32f2f"
+     opacity="0.85"
+     id="rect40"
+     transform="rotate(-90)"
+     style="stroke-width:0.450956" />
+  <!-- 四轮（前后各左右轮） -->
+  <rect
+     x="28"
+     y="7"
+     width="22"
+     height="5"
+     rx="2.5"
+     fill="#1A1A1A"
+     id="rect41" />
+  <rect
+     x="250"
+     y="7"
+     width="22"
+     height="5"
+     rx="2.5"
+     fill="#1A1A1A"
+     id="rect42" />
+  <rect
+     x="28"
+     y="88"
+     width="22"
+     height="5"
+     rx="2.5"
+     fill="#1A1A1A"
+     id="rect43" />
+  <rect
+     x="250"
+     y="88"
+     width="22"
+     height="5"
+     rx="2.5"
+     fill="#1A1A1A"
+     id="rect44" />
+  <!-- 轮廓 -->
+  <path
+     d="M 15,12 L 285,12 Q 295,12 295,22 L 295,78 Q 295,88 285,88 L 15,88 Q 5,88 5,78 L 5,22 Q 5,12 15,12 Z"
+     fill="none"
+     stroke="#E65100"
+     stroke-width="1.2"
+     id="path44" />
+</svg>
